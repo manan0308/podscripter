@@ -1,0 +1,135 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f4f8;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container Styling */
+  .container {
+    max-width: 640px;
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Headings */
+  h1, h2, h3 {
+    font-weight: bold;
+    color: #2d3748;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #357abd;
+  }
+  
+  /* Input Form Styling */
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+  
+  /* Error Message Styling */
+  .bg-red-100 {
+    background-color: #fee2e2;
+  }
+  
+  .border-red-400 {
+    border-color: #fca5a5;
+  }
+  
+  .text-red-700 {
+    color: #b91c1c;
+  }
+  
+  .px-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .py-3 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .rounded {
+    border-radius: 6px;
+  }
+  
+  /* Result Display */
+  .bg-gray-100 {
+    background-color: #f7fafc;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .text-gray-700 {
+    color: #4a5568;
+  }
+  
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  
+  .p-6 {
+    padding: 24px;
+  }
+  
+  /* Loading Spinner */
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

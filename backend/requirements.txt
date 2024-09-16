@@ -1,0 +1,7 @@
+fastapi==0.68.0
+uvicorn==0.15.0
+yt-dlp==2023.0.0  # Replace with the latest version of yt-dlp
+httpx==0.23.0
+python-dotenv==0.19.0
+assemblyai==0.17.0
+redis==4.0.2  # If you plan to use Redis for caching
