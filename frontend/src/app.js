@@ -10,26 +10,32 @@ function App() {
   const [error, setError] = useState(null);
 
   const handleSubmit = async (url) => {
-    setProcessing(true);
-    setError(null);
-    setResult(null);
-    try {
-      const response = await fetch('http://127.0.0.1:8000/process', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url }),
-      });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setResult(data);
-    } catch (error) {
-      setError(`An error occurred while processing the video: ${error.message}`);
-    } finally {
-      setProcessing(false);
+  setProcessing(true);
+  setError(null);
+  setResult(null);
+  
+  // Dynamically set the backend URL based on environment
+  const backendUrl = process.env.NODE_ENV === 'production'
+    ? 'https://podscripter-production.up.railway.app/process'  // Replace with your production backend URL
+    : 'http://127.0.0.1:8000/process';  // Local development
+
+  try {
+    const response = await fetch(backendUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url }),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
+    const data = await response.json();
+    setResult(data);
+  } catch (error) {
+    setError(`An error occurred while processing the video: ${error.message}`);
+  } finally {
+    setProcessing(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center p-4">
