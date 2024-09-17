@@ -1,16 +1,15 @@
 [phases.setup]
-nixPkgs = ["ffmpeg", "python3"]
+nixPkgs = ["ffmpeg", "python3", "python3-pip"]
 aptPkgs = ["wget"]
 cmds = [
     "curl -fsSL https://deb.nodesource.com/setup_18.x | bash -",
-    "apt-get install -y nodejs",
-    "python3 -m ensurepip --upgrade"
+    "apt-get install -y nodejs"
 ]
 
 [phases.install]
 cmds = [
     "cd frontend && npm install",
-    "cd backend && python3 -m pip install -r requirements.txt"
+    "cd backend && pip3 install -r requirements.txt"
 ]
 
 [phases.build]
