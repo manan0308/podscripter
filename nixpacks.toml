@@ -1,6 +1,31 @@
+# [phases.setup]
+# nixPkgs = ["ffmpeg", "python3"]
+# aptPkgs = ["wget", "python3-pip"]
+# cmds = [
+#     "curl -fsSL https://deb.nodesource.com/setup_18.x | bash -",
+#     "apt-get install -y nodejs"
+# ]
+
+# [phases.install]
+# cmds = [
+#     "cd frontend && npm install --legacy-peer-deps",
+#     "cd backend && pip3 install -r requirements.txt"
+# ]
+
+# [phases.build]
+# cmds = [
+#     "cd frontend && npm run build"
+# ]
+
+# [start]
+# cmd = "cd backend && python3 -m uvicorn main:app --host 0.0.0.0 --port $PORT"
+
+# [variables]
+# NODE_ENV = "production"
+
 [phases.setup]
-nixPkgs = ["ffmpeg", "python3"]
-aptPkgs = ["wget", "python3-pip"]
+nixPkgs = ["ffmpeg"]
+aptPkgs = ["wget", "python3", "python3-pip"]
 cmds = [
     "curl -fsSL https://deb.nodesource.com/setup_18.x | bash -",
     "apt-get install -y nodejs"
@@ -22,5 +47,3 @@ cmd = "cd backend && python3 -m uvicorn main:app --host 0.0.0.0 --port $PORT"
 
 [variables]
 NODE_ENV = "production"
-
-
