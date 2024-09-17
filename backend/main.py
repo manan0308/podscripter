@@ -20,7 +20,7 @@ app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="fron
 # Add CORS middleware for the React app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app's address for local development
+    allow_origins=["http://localhost:3000", "https://podscripter-production.up.railway.app"],  # Add your Railway domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
