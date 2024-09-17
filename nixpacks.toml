@@ -1,6 +1,6 @@
 [phases.setup]
-nixPkgs = ["ffmpeg", "python3Full"]
-aptPkgs = ["wget"]
+nixPkgs = ["ffmpeg", "python3"]
+aptPkgs = ["wget", "python3-pip"]
 cmds = [
     "curl -fsSL https://deb.nodesource.com/setup_18.x | bash -",
     "apt-get install -y nodejs"
@@ -8,8 +8,8 @@ cmds = [
 
 [phases.install]
 cmds = [
-    "cd frontend && npm install",
-    "cd backend && python3 -m pip install -r requirements.txt"
+    "cd frontend && npm install --legacy-peer-deps",
+    "cd backend && pip3 install -r requirements.txt"
 ]
 
 [phases.build]
