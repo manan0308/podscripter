@@ -1,9 +1,10 @@
-# Specify the providers (NodeJS for frontend, Python for backend)
-providers = ["nodejs", "python"]
-
 [phases.setup]
 nixPkgs = ["ffmpeg"]
 aptPkgs = ["wget"]
+cmds = [
+    "curl -fsSL https://deb.nodesource.com/setup_16.x | bash -",
+    "apt-get install -y nodejs"
+]
 
 [phases.install]
 cmds = [
