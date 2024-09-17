@@ -1,6 +1,8 @@
 import logging
+import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from youtube_downloader import download_audio  # Asynchronous download
 from transcription_service import transcribe_audio  # Synchronous transcription
@@ -12,10 +14,13 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
+# Serve the frontend build directory
+app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="frontend")
+
 # Add CORS middleware for the React app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app's address
+    allow_origins=["http://localhost:3000"],  # React app's address for local development
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
