@@ -1,0 +1,13 @@
+[build]
+# Frontend build step (React)
+frontend = "cd frontend && npm install && npm run build"
+
+# Backend build step (FastAPI)
+backend = "cd backend && pip install -r requirements.txt"
+
+[start]
+# Start Frontend (React)
+frontend = "cd frontend && npm start"
+
+# Start Backend (FastAPI)
+backend = "cd backend && uvicorn main:app --host 0.0.0.0 --port 8000"
