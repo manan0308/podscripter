@@ -38,11 +38,14 @@ function App() {
 };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center p-4">
-      <div className="w-full max-w-3xl bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg rounded-lg shadow-xl p-8">
-        <h1 className="text-3xl md:text-5xl font-bold text-center text-gray-800 mb-8">
-          🎥 YouTube Transcriber & Summarizer
-        </h1>
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 flex items-center justify-center p-4">
+
+<div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 opacity-30"></div>
+<div className="relative bg-gradient-to-r from-gray-700 via-gray-400 to-gray-700 p-12 rounded-lg shadow-2xl max-w-lg w-full border border-[#334155] z-10">
+
+<h1 className="text-4xl font-extrabold mb-8">
+🎥 YouTube Transcriber & Summarizer
+          </h1>
 
         <InputForm onSubmit={handleSubmit} />
 
