@@ -26,7 +26,7 @@ app = FastAPI()
 # Add CORS middleware for the React app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://podscripter.up.railway.app","http://0.0.0.0:8000"],
+    allow_origins=["http://localhost:3000", "https://podscripter.vercel.app","podscripter-gh7tdex4f-manan0308s-projects.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
