@@ -26,7 +26,7 @@ app = FastAPI()
 # Add CORS middleware for the React app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://podscripter.vercel.app","podscripter-gh7tdex4f-manan0308s-projects.vercel.app"],
+    allow_origins=["http://localhost:3000", "https://podscripter.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -82,8 +82,7 @@ async def shutdown_event():
     logger.info("FastAPI application shutting down")
 
 # Serve the frontend build directory
-# Note: This should be after all your API routes
-app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="frontend/build", html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn
