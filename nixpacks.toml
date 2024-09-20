@@ -8,13 +8,13 @@ cmds = [
 
 [phases.install]
 cmds = [
-    "cd frontend && npm install --legacy-peer-deps",
+    "cd frontend && npm ci",
     "cd backend && pip3 install -r requirements.txt"
 ]
 
 [phases.build]
 cmds = [
-    "cd frontend && npm install --legacy-peer-deps && npm run build"
+    "cd frontend && NODE_ENV=production npm run build"
 ]
 
 [start]
