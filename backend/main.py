@@ -1,3 +1,4 @@
+# app.py
 import logging
 import os
 import sys
@@ -26,7 +27,7 @@ app = FastAPI()
 # Add CORS middleware for the React app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://podscripter.vercel.app", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -40,11 +41,13 @@ class VideoRequest(BaseModel):
 async def log_requests(request: Request, call_next):
     logger.info(f"Received {request.method} request to {request.url}")
     logger.debug(f"Request headers: {request.headers}")
+    body = await request.body()
+    logger.debug(f"Request body: {body}")
     response = await call_next(request)
     logger.info(f"Returned response with status code: {response.status_code}")
     return response
 
-@app.post("/process")
+@app.post("/api/process")
 async def process_video(video: VideoRequest):
     logger.info(f"Processing video: {video.url}")
     try:
@@ -66,10 +69,10 @@ async def process_video(video: VideoRequest):
         logger.error(f"Traceback: {traceback.format_exc()}")
         raise HTTPException(status_code=500, detail=f"Failed to process video: {str(e)}")
 
-@app.get("/test")
-async def test_route():
-    logger.info("Test route accessed")
-    return {"message": "Test route is working"}
+@app.get("/api/test")
+async def test_api():
+    logger.info("Test API route accessed")
+    return {"message": "API is working"}
 
 @app.on_event("startup")
 async def startup_event():
