@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import InputForm from './components/InputForm';
 import ResultDisplay from './components/ResultDisplay';
@@ -15,8 +16,8 @@ function App() {
     
     // Dynamically set the backend URL based on environment
     const backendUrl = process.env.NODE_ENV === 'production'
-      ? 'https://podscripter.vercel.app/process'  // Updated production backend URL for Vercel
-      : 'http://127.0.0.1:8000/process';  // Local development
+      ? 'https://podscripter.vercel.app/api/process'  // Updated production backend URL for Vercel
+      : 'http://127.0.0.1:8000/api/process';  // Local development
 
     try {
       const response = await fetch(backendUrl, {
@@ -31,6 +32,7 @@ function App() {
       setResult(data);
     } catch (error) {
       setError(`An error occurred while processing the video: ${error.message}`);
+      console.error('Error details:', error);
     } finally {
       setProcessing(false);
     }
